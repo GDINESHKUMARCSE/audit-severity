@@ -45,4 +45,9 @@ public class SeverityController {
 	    responseEntity = ResponseEntity.ok().body(auditResponse);
 		return responseEntity;
 	}
+	
+	@GetMapping("/health")
+	public ResponseEntity<?> getHealthCheck() {
+		return ResponseEntity.ok().body("ok");
+	}
 }
