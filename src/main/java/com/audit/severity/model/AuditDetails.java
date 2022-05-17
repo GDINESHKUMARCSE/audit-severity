@@ -14,70 +14,34 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 @AllArgsConstructor
 @NoArgsConstructor
-//@Entity
-//@Table(name = "auditdetail")
+@Data
+@Entity
+@Table(name = "auditdetail")
 public class AuditDetails {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "AuditId")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "AuditId")
 	private int auditId;
-//	@Column(name = "AuditType")
+	@Column(name = "AuditType")
 	private String auditType;
-//	@Temporal(TemporalType.TIMESTAMP)
-//	@Column(name = "auditdate")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "auditdate")
 	private Date auditDate;
-	
-	private List<AuditQuestion> auditQuestions;
 
+	@Column(name = "questionYesCount")
+	private Integer questionYesCount;
+
+	@Column(name = "questionNoCount")
+	private Integer questionNoCount;
 	@PrePersist
 	protected void onCreate() {
 		auditDate = new Date();
 	}
-
-	public int getAuditId() {
-		return auditId;
-	}
-
-	public void setAuditId(int auditId) {
-		this.auditId = auditId;
-	}
-
-	public String getAuditType() {
-		return auditType;
-	}
-
-	public void setAuditType(String auditType) {
-		this.auditType = auditType;
-	}
-
-	public Date getAuditDate() {
-		return auditDate;
-	}
-
-	public void setAuditDate(Date auditDate) {
-		this.auditDate = auditDate;
-	}
-
-	public List<AuditQuestion> getAuditQuestions() {
-		return auditQuestions;
-	}
-
-	public void setAuditQuestions(List<AuditQuestion> auditQuestions) {
-		this.auditQuestions = auditQuestions;
-	}
-
-	@Override
-	public String toString() {
-		return "AuditDetails [auditId=" + auditId + ", auditType=" + auditType + ", auditDate=" + auditDate
-				+ ", auditQuestions=" + auditQuestions + "]";
-	}
-
-	
-	
 }

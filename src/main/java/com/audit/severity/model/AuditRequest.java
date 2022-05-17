@@ -18,77 +18,20 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-//@Entity
-//@Table(name="auditrequest")
+@Data
+@Entity
+@Table(name="auditrequest")
 public class AuditRequest {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name="RequestId")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="RequestId")
 	private int requestId;
+	@OneToOne(cascade = CascadeType.ALL)
 	private AuditDetails auditDetails;
-//	@Column(name="ProjectName")
+	@Column(name="ProjectName")
 	private String projectName;
-//	@Column(name="ManagerName")
+	@Column(name="ManagerName")
 	private String managerName;
-//	@Column(name="OwnerName")
+	@Column(name="OwnerName")
 	private String ownerName;
-	
-	
-	public int getRequestId() {
-		return requestId;
-	}
-
-
-	public void setRequestId(int requestId) {
-		this.requestId = requestId;
-	}
-
-
-	public AuditDetails getAuditDetails() {
-		return auditDetails;
-	}
-
-
-	public void setAuditDetails(AuditDetails auditDetails) {
-		this.auditDetails = auditDetails;
-	}
-
-
-	public String getProjectName() {
-		return projectName;
-	}
-
-
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
-
-
-	public String getManagerName() {
-		return managerName;
-	}
-
-
-	public void setManagerName(String managerName) {
-		this.managerName = managerName;
-	}
-
-
-	public String getOwnerName() {
-		return ownerName;
-	}
-
-
-	public void setOwnerName(String ownerName) {
-		this.ownerName = ownerName;
-	}
-
-
-	@Override
-	public String toString() {
-		return "AuditRequest [requestId=" + requestId + ", auditDetails=" + auditDetails + ", projectName="
-				+ projectName + ", managerName=" + managerName + ", ownerName=" + ownerName + "]";
-	}
-	
-	
 }
