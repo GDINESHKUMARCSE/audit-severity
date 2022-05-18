@@ -15,6 +15,7 @@ import com.audit.severity.model.AuditResponse;
 import com.audit.severity.service.SeverityService;
 
 @RestController
+@CrossOrigin
 public class SeverityController {
 
 	@Autowired
@@ -23,7 +24,6 @@ public class SeverityController {
 	@Autowired
 	private TokenService tokenService;
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value="/ProjectExecutionStatus", consumes = "application/json")
 	private ResponseEntity<?> GetProjectExecutionStatus(@RequestHeader(value = "Authorization") String token,
 														@RequestBody AuditRequest auditRequest) {
